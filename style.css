@@ -1,12 +1,16 @@
 .body-custom {
-    background: linear-gradient(135deg,
-            #1a1a2e 0%,
-            #16213e 25%,
-            #0f3460 50%,
-            #533483 75%,
-            #7209b7 100%);
-    min-height: 100vh;
-    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 /* Glassmorphism per navbar */
@@ -32,18 +36,16 @@
 /*
 Opzione 1
 .body-custom{
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(135deg, 
-        #0a0a0f 0%, 
-        #0f0f1a 25%, 
-        #141425 50%, 
-        #191930 75%, 
-        #1e1e3b 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    
+    background: linear-gradient(135deg,
+            #1a1a2e 0%,
+            #16213e 25%,
+            #0f3460 50%,
+            #533483 75%,
+            #7209b7 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+
 }
 
 Opzione 2
