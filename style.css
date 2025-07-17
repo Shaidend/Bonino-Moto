@@ -1,0 +1,113 @@
+.body-custom {
+    background: linear-gradient(135deg,
+            #1a1a2e 0%,
+            #16213e 25%,
+            #0f3460 50%,
+            #533483 75%,
+            #7209b7 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism per navbar */
+.navbar-glass {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+}
+
+/* Hover effect per nav-link */
+.nav-link:hover {
+    color: black !important;
+    transition: color 0.3s ease;
+}
+
+/* Offcanvas personalizzato */
+.offcanvas-glass {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(15px);
+}
+
+
+/*
+Opzione 1
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+Opzione 2
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #1a1a2e 0%, 
+        #16213e 25%, 
+        #0f3460 50%, 
+        #533483 75%, 
+        #7209b7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+Opzione 3
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.body-custom::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 80%, rgba(255, 100, 150, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(100, 150, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 60% 60%, rgba(150, 100, 255, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 30% 30%, rgba(255, 200, 100, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 70% 85%, rgba(100, 255, 200, 0.06) 0%, transparent 25%);
+    backdrop-filter: blur(80px);
+}
+
+Opzione 4
+
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+*/

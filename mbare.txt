@@ -1,0 +1,84 @@
+<!-- Navbar Desktop (nascosta su mobile) -->
+        <div class="d-none d-lg-block">
+            <div class="row justify-content-center pt-3">
+                <div class="col-xl-8 col-lg-10">
+                    <nav class="navbar navbar-expand-lg navbar-glass rounded-bottom-4">
+                        <div class="container-fluid justify-content-center">
+                            <a class="navbar-brand text-white me-5" style="margin-left: -250px;" href="#"><img src="Logo.png" alt="error" class="img-fluid w-50"></a>
+                            <div class="navbar-nav" style="margin-left: -10px;">
+                                <a class="nav-link text-white mx-4" href="#">Home</a>
+                                <a class="nav-link text-white mx-4" href="#">Services</a>
+                                <a class="nav-link text-white mx-4" href="#">Product</a>
+                                <a class="nav-link text-white mx-4" href="#">About</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Tablet (visibile solo su tablet) -->
+        <div class="d-none d-md-block d-lg-none">
+            <div class="row justify-content-center pt-3">
+                <div class="col-11">
+                    <nav class="navbar navbar-expand-md navbar-glass rounded-bottom-4">
+                        <div class="container-fluid justify-content-center">
+                            <a class="navbar-brand text-white me-4" href="#">Navbar</a>
+                            <div class="navbar-nav">
+                                <a class="nav-link text-white mx-2" href="#">Home</a>
+                                <a class="nav-link text-white mx-2" href="#">Services</a>
+                                <a class="nav-link text-white mx-2" href="#">Product</a>
+                                <a class="nav-link text-white mx-2" href="#">About</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Mobile (visibile solo su mobile) -->
+        <div class="d-block d-md-none">
+            <nav class="navbar navbar-glass">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white" href="#">Navbar</a>
+                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" 
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <i class="bi bi-list text-white fs-4"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Offcanvas Menu -->
+            <div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasNavbar" 
+                 aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-light border-opacity-25">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" 
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
+                                <i class="bi bi-house me-2"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
+                                <i class="bi bi-gear me-2"></i>Services
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
+                                <i class="bi bi-box me-2"></i>Product
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white py-3" href="#">
+                                <i class="bi bi-info-circle me-2"></i>About
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
