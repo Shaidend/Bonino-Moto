@@ -1,84 +1,82 @@
-<!-- Navbar Desktop (nascosta su mobile) -->
-        <div class="d-none d-lg-block">
-            <div class="row justify-content-center pt-3">
-                <div class="col-xl-8 col-lg-10">
-                    <nav class="navbar navbar-expand-lg navbar-glass rounded-bottom-4">
-                        <div class="container-fluid justify-content-center">
-                            <a class="navbar-brand text-white me-5" style="margin-left: -250px;" href="#"><img src="Logo.png" alt="error" class="img-fluid w-50"></a>
-                            <div class="navbar-nav" style="margin-left: -10px;">
-                                <a class="nav-link text-white mx-4" href="#">Home</a>
-                                <a class="nav-link text-white mx-4" href="#">Services</a>
-                                <a class="nav-link text-white mx-4" href="#">Product</a>
-                                <a class="nav-link text-white mx-4" href="#">About</a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
+/*
+Opzione 1
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-        <!-- Navbar Tablet (visibile solo su tablet) -->
-        <div class="d-none d-md-block d-lg-none">
-            <div class="row justify-content-center pt-3">
-                <div class="col-11">
-                    <nav class="navbar navbar-expand-md navbar-glass rounded-bottom-4">
-                        <div class="container-fluid justify-content-center">
-                            <a class="navbar-brand text-white me-4" href="#">Navbar</a>
-                            <div class="navbar-nav">
-                                <a class="nav-link text-white mx-2" href="#">Home</a>
-                                <a class="nav-link text-white mx-2" href="#">Services</a>
-                                <a class="nav-link text-white mx-2" href="#">Product</a>
-                                <a class="nav-link text-white mx-2" href="#">About</a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
+Opzione 2
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #1a1a2e 0%, 
+        #16213e 25%, 
+        #0f3460 50%, 
+        #533483 75%, 
+        #7209b7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-        <!-- Navbar Mobile (visibile solo su mobile) -->
-        <div class="d-block d-md-none">
-            <nav class="navbar navbar-glass">
-                <div class="container-fluid">
-                    <a class="navbar-brand text-white" href="#">Navbar</a>
-                    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" 
-                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                        <i class="bi bi-list text-white fs-4"></i>
-                    </button>
-                </div>
-            </nav>
+Opzione 3
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-            <!-- Offcanvas Menu -->
-            <div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasNavbar" 
-                 aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header border-bottom border-light border-opacity-25">
-                    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Menu</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" 
-                            aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
-                                <i class="bi bi-house me-2"></i>Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
-                                <i class="bi bi-gear me-2"></i>Services
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="#">
-                                <i class="bi bi-box me-2"></i>Product
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white py-3" href="#">
-                                <i class="bi bi-info-circle me-2"></i>About
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+.body-custom::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 80%, rgba(255, 100, 150, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(100, 150, 255, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 60% 60%, rgba(150, 100, 255, 0.08) 0%, transparent 35%),
+        radial-gradient(circle at 30% 30%, rgba(255, 200, 100, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 70% 85%, rgba(100, 255, 200, 0.06) 0%, transparent 25%);
+    backdrop-filter: blur(80px);
+}
+
+Opzione 4
+
+.body-custom{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #0f0f1a 25%, 
+        #141425 50%, 
+        #191930 75%, 
+        #1e1e3b 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+*/
