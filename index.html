@@ -17,36 +17,90 @@
   <style>
     @import url(style.css);
   </style>
- 
+
+  <!-- Carousel -->
+  <script>
+    const carousel = document.getElementById('carouselExample');
+    const bsCarousel = bootstrap.Carousel.getInstance(carousel) || new bootstrap.Carousel(carousel);
+    let startX = 0;
+    let isDragging = false;
+    let currentX = 0;
+
+    // Touch
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      handleSwipe(startX, endX);
+    });
+
+    // Mouse events
+    carousel.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      carousel.classList.add('dragging');
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX;
+    });
+
+    carousel.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      carousel.classList.remove('dragging');
+      handleSwipe(startX, e.clientX);
+    });
+
+    carousel.addEventListener('mouseleave', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      carousel.classList.remove('dragging');
+    });
+
+    function handleSwipe(start, end) {
+      const threshold = 50;
+      if (start - end > threshold) {
+        bsCarousel.next();
+      } else if (end - start > threshold) {
+        bsCarousel.prev();
+      }
+    }
+
+    // Indicatori personalizzati
+    document.querySelectorAll('.custom-indicator').forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        bsCarousel.to(index);
+      });
+    });
+
+    carousel.addEventListener('slid.bs.carousel', (e) => {
+      document.querySelectorAll('.custom-indicator').forEach((el, idx) => {
+        el.classList.toggle('active', idx === e.to);
+      });
+    });
+  </script>
+
 </head>
 
 <body class="body-custom">
   <div class="container-fluid">
-    <div class="d-none d-lg-block" style="position: static;">
+    <div class="d-none d-lg-block navbar-wrapper">
       <div class="row justify-content-center pt-3">
         <div class="col-xl-8 col-lg-10">
           <nav class="navbar navbar-expand-lg navbar-glass rounded-bottom-4">
             <div class="container-fluid justify-content-between">
               <a class="navbar-brand text-white mb-1 fs-5 fs-xl-1 me-xl-5" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
-                  <defs>
-                    <style>
-                      .script-text {
-                        font-family: 'Parisienne', cursive;
-                        font-size: 32px;
-                        fill: white;
-                        font-weight: normal;
-                      }
-                    </style>
-                  </defs>
-                  <text x="60" y="28" text-anchor="middle" class="script-text">David</text>
-                </svg>
+                <img src="boninomoto.png" alt="Logo" class="logo" height="30">
               </a>
               <div class="navbar-nav ms-lg-5">
                 <a class="nav-link mx-4 fs-5" href="#" style="color: lightgreen;">Home</a>
                 <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="Services.html">Services</a>
-                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="test.html">Resume</a>
-                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="#">Projects</a>
+                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="test.html">Used</a>
+                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="#">About</a>
                 <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="contacts.html">Contacts</a>
               </div>
             </div>
@@ -60,19 +114,7 @@
       <nav class="navbar navbar-glass">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
-              <defs>
-                <style>
-                  .script-text {
-                    font-family: 'Parisienne', cursive;
-                    font-size: 32px;
-                    fill: white;
-                    font-weight: normal;
-                  }
-                </style>
-              </defs>
-              <text x="60" y="28" text-anchor="middle" class="script-text">David</text>
-            </svg>
+            <img src="boninomoto.png" alt="Logo" class="logo" height="30">
           </a>
           <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -86,19 +128,7 @@
         aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header border-bottom border-light border-opacity-25">
           <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
-              <defs>
-                <style>
-                  .script-text {
-                    font-family: 'Parisienne', cursive;
-                    font-size: 32px;
-                    fill: white;
-                    font-weight: normal;
-                  }
-                </style>
-              </defs>
-              <text x="60" y="28" text-anchor="middle" class="script-text">David</text>
-            </svg>
+            <img src="boninomoto.png" alt="Logo" class="logo" height="30">
           </h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
             aria-label="Close"></button>
@@ -135,27 +165,335 @@
       </div>
     </div>
 
-
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
+    <div id="carouselExampleIndicators" class="carousel slide main-carousel" data-bs-ride="carousel"
+      data-bs-interval="3500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1" class="rounded-circlce"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"
+          class="rounded-circlce"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"
+          class="rounded-circlce"></button>
+      </div>
+      <div class="carousel-inner carosuel-content-custom">
         <div class="carousel-item active">
-          <img src="Benelli corse.jpg" class="d-block w-100" alt="error">
+          <img src="Benelli corse.jpg" class="d-block img-carosuel-custom" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="Benelli2.jpg" class="d-block w-100" alt="error">
+          <img src="Benelli2.jpg" class="d-block img-carosuel-custom" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="Ruotaalta.jpg" class="d-block w-100" alt="error">
+          <img src="Ruotaalta.jpg" class="d-block img-carosuel-custom" alt="...">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+
+      <!--
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+      -->
+    </div>
+
+    <div class="d-block d-lg-block yoooo" style="background-color: #1e1e1e; margin-top: 200px;">
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
+          <h1>What do we offer</h1>
+          <div class="row g-3 justify-content-center">
+            <!-- Prima card -->
+            <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 zium">
+              <div class="card bg-transparent card-3 mbare2">
+                <div class="card-title">
+                </div>
+                <div class="card-body align-items-start">
+                  <h1 class="job" style="color: skyblue;">Vendita <br>nuovo</h1>
+                  <div class="btn btn-primary">Mezzi nuovi</div>
+
+                  <img src="Officina.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- Seconda card invariata -->
+            <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 ">
+              <div class="card bg-transparent card-3 mbare1 ms-xl-5">
+                <div class="card-title">
+                </div>
+                <div class="card-body align-items-start">
+                  <h1 class="job" style="color: skyblue;">Vendita <br>usato</h1>
+                  <div class="btn btn-primary">Mezzi usati</div>
+                  <img src="Officina.jpg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 justify-content-center">
+              <!-- Prima card -->
+              <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1">
+                <div class="card bg-transparent card-4">
+                  <div class="card-title">
+                  </div>
+                  <div class="card-body align-items-start">
+                    <h1 class="job" style="color: skyblue;">Vendita <br>ricambi</h1>
+                    <div class="btn btn-primary">Visualizza articoli</div>
+
+                    <img src="Officina.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+              <!-- Seconda card invariata -->
+              <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 yoooo">
+                <div class="card bg-transparent card-4 mbare">
+                  <div class="card-title">
+                  </div>
+                  <div class="card-body align-items-start">
+                    <h1 class="job" style="color: skyblue;">Riparazione <br>veicoli</h1>
+                    <div class="btn btn-primary">Scopri di più</div>
+
+                    <img src="Officina.jpg" alt="">
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sponsor -->
+    <div class="d-block d-lg-block sponsor" style="background-color: #1e1e1e; margin-top: 100px;">
+      <h1 class="text-start text-white atm">Our Sponsors</h1>
+      <div class="row justify-content-center" style="margin-top: -100px;">
+        <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
+          <div class="row g-3 justify-content-center">
+            <!-- sponsor -->
+            <hr>
+            <div class="row justify-content-center align-items-center align-self-center">
+              <!-- svg  -->
+              <!-- Vespa -->
+              <div class="col-6 col-md-4 col-lg-2 order-1 order-lg-1 mb-1 loghi-p-v">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-logo" role="img">
+                  <title id="title-logo">Vespa</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                      cursor: pointer;
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="Vespa.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2 order-1 order-lg-1 mb-1 loghi-g-b">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-vespa" role="img">
+                  <title id="title-vespa">Gilera</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="Gilera.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+
+              <!-- HR tra prima e seconda coppia - visibile solo su mobile -->
+              <div class="col-12 d-sm-block d-md-none order-3">
+                <hr class="my-2">
+              </div>
+
+              <!-- Seconda coppia: Gilera e Benelli -->
+              <div class="col-6 col-md-4 col-lg-2 order-1 order-lg-1 mb-1 loghi-g-b">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-gilera" role="img">
+                  <title id="title-gilera">Benelli</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="benelli-footer-logo.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2 order-4 order-lg-3 mb-1 loghi-k-b">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-benelli" role="img">
+                  <title id="title-benelli">Keeway</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="keeway-logo-vector.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Terza coppia: Keeway e Brixton -->
+              <div class="col-6 col-md-4 col-lg-2 order-5 order-lg-4 mb-1 loghi-k-b">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-keeway" role="img">
+                  <title id="title-keeway">Brixton</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="brixton-logo-removebg-preview.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+
+              <div class="col-6 col-md-4 col-lg-2 order-8 order-lg-6 mb-0 loghi-p-v">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-brixton" role="img">
+                  <title id="title-brixton">Piaggio</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
+
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="Piaggio.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="d-block d-lg-block footer" style="background-color: #1e1e1e; margin-top: 150px;">
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
+          <div class="row g-3 justify-content-center">
+            <!-- footer -->
+            <div class="text-start text-white py-4">
+              <div class="row">
+                <div class="col">
+                  <img src="boninomoto.png" alt="" class="logo-footer mt-4">
+                </div>
+                <div class="col social mt-xl-5 mt-4">
+                  <p class="mb-0">
+                    <a href="https://www.facebook.com/boninomoto#" class=""><i class="fab fa-facebook-f social-icon1"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram social-icon2"></i></a>
+                    <a href="boninomoto@tiscali.it" class="text-white "><i class="fa-solid fa-envelope social-icon3"></i></a>
+                  </p>
+                </div>
+              </div>
+
+              <hr>
+              <div class="row">
+                <div class="col">
+                  <p class="mb-2">© Bonino Moto Sas</p>
+                  <p class="mb-2">Via XXV Aprile, 26/A 13836 COSSATO BI</p>
+                  <p>Numero fisso: 015 93829</p>
+                  <p>P. IVA: 01770800025</p>
+                  <p>Mail dealer: <a href="" style="text-decoration: none;">bonino@dealer.piaggiogroup.net</a></p>
+                </div>
+                <div class="col">
+                  <a href="">
+
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+<!--
+-->
+
+
+<!-- 
+<div id="carouselExampleIndicators" class="carousel slide main-carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner carosuel-content-custom" data-bs-ride="carousel" data-bs-interval="3500">
+        <div class="carousel-item active">
+          <img src="Benelli corse.jpg" class="d-block img-carosuel-custom" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="Benelli2.jpg" class="d-block img-carosuel-custom" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="Ruotaalta.jpg" class="d-block img-carosuel-custom" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
-</body>
+-->

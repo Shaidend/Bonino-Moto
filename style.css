@@ -1,7 +1,8 @@
 .body-custom {
-    background: black;
+    background: #1e1e1e;
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -40,6 +41,7 @@
 
 .carousel {
     cursor: grab;
+    border-radius: 0px;
 }
 
 .carousel.dragging {
@@ -59,7 +61,7 @@
     width: 12px;
     height: 12px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
+    border-radius: 0%;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -90,7 +92,7 @@
     height: 60vh;
     background-size: cover;
     background-position: center;
-    border-radius: 16px;
+    border-radius: 0px;
     user-select: none;
     pointer-events: none;
 }
@@ -104,9 +106,18 @@
     overflow: hidden;
 }
 
-.custom-indicators{
-    border-radius: 14px;
+.custom-indicators {
+    border-radius: 0px;
 }
+
+
+.whatWeDo-block {
+    position: relative;
+    z-index: 9999;
+    background-color: transparent;
+}
+
+
 
 
 
@@ -123,16 +134,23 @@
 
 @media (min-width: 320px) {
     .main-carousel {
-        width: 315px;
+        width: 318px;
         height: 50vh;
         margin-top: 0px;
+        margin-left: -1px;
         position: relative;
         z-index: 1;
+        border-radius: 0px;
     }
 
     .logo {
         width: 150px;
         height: 30px;
+        margin-left: -10px;
+    }
+
+    .navbar-toggler {
+        margin-right: 81px;
     }
 
 
@@ -140,42 +158,277 @@
         width: 320px;
         height: 400px;
 
-        border-radius: 10px;
+        border-radius: 0px;
         user-select: none;
         pointer-events: none;
         object-fit: fill;
+        border-radius: 0px;
     }
 
     .carosuel-content-custom {
         margin-left: -10px;
+        border-radius: 0px;
     }
 
     .frecce-custom {
         margin-left: -20px;
     }
+
+
+    /**/
+
+
+    .yoooo {
+        margin-right: 0 !important;
+    }
+
+    .mbare {
+        margin-left: -35px !important;
+        margin-right: 0px !important;
+    }
+
+    .mbare1{
+        margin-left: -29px !important;
+        margin-right: 0px !important;
+    }
+    .mbare2{
+        margin-left: -29px !important;
+        margin-right: 0px !important;
+    }
+
+    /* Card-4 mobile - Scala 0.35 del desktop */
+    .card-4 {
+        width: calc(45rem * 0.45); /* ~15.75rem */
+        height: calc(23.7rem * 0.55); /* ~8.3rem */
+        margin-left: -35px;
+        --color1: #e81cff;
+        --color2: #40c9ff;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, var(--color1), var(--color2)) border-box;
+        border: 4px solid transparent;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    .card-4:hover {
+        --color1: #fbff1c;
+        --color2: #ff4040;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, #fbff1c, #ff4040) border-box;
+        border: 4px solid transparent;
+        
+        width: calc(45rem * 0.45); /* ~15.75rem */
+        height: calc(23.7rem * 0.55); /* ~8.3rem */
+        margin-left: -35px;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    /* Card-3 mobile - Scala 0.35 del desktop */
+    .card-3 {
+        width: calc(45rem * 0.45); /* ~15.75rem */
+        height: calc(23.7rem * 0.55); /* ~8.3rem */
+        margin-left: -35px;
+        --color1: #e81cff;
+        --color2: #40c9ff;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, var(--color1), var(--color2)) border-box;
+        border: 4px solid transparent;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    .card-3:hover {
+        --color1: #fbff1c;
+        --color2: #ff4040;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, #fbff1c, #ff4040) border-box;
+        border: 4px solid transparent;
+        width: calc(45rem * 0.45); /* ~15.75rem */
+        height: calc(23.7rem * 0.55); /* ~8.3rem */
+        margin-left: -35px;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    /* Immagini mobile - Scala proporzionale */
+    .card-4 img, .card-3 img {
+        position: absolute;
+        margin-top: calc(-15px * 0.35); /* ~-5px */
+        margin-left: calc(320px * 0.50); /* ~112px */
+        left: 0;
+        width: 80%;
+        height: 110%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+        clip-path: polygon(100% -1000%, 0% 50%, 10% 100%, 100% 100%);
+    }
+
+    /* Overlay mobile */
+    .card-4::before, .card-3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(11, 13, 26, 0.7) 0%, rgba(11, 13, 26, 0.3) 50%, transparent 70%);
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* Card body mobile - Scala proporzionale */
+    .card-4 .card-body, .card-3 .card-body {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: calc(2rem * 0.35); /* ~0.7rem */
+        color: white;
+    }
+
+    /* Titoli mobile - Scala proporzionale */
+    .card-4 h1.job, .card-3 h1.job {
+        font-size: calc(2.3rem * 0.45); /* ~0.8rem */
+        font-weight: 900;
+        color: #f0f6fc;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        margin-bottom: calc(1.5rem * 0.35); /* ~0.5rem */
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Bottoni mobile - Scala proporzionale */
+    .card-4 .btn, .card-3 .btn {
+        background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+        border: 2px solid #3d5a80;
+        color: #f0f6fc;
+        padding: calc(0.8rem * 0.35) calc(1.5rem * 0.35); /* ~0.28rem 0.52rem */
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        width: max-content;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        font-size: calc(1rem * 0.35); /* ~0.35rem - troppo piccolo, uso 0.6rem */
+        font-size: 0.6rem;
+    }
+
+    .card-4 .btn:hover, .card-3 .btn:hover {
+        background: linear-gradient(45deg, #203a43, #2c5364, #0f2027);
+        border-color: #98c1d9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(152, 193, 217, 0.3);
+        color: #98c1d9;
+    }
+
+    .card-4 .btn:focus, .card-3 .btn:focus {
+        box-shadow: 0 0 0 0.2rem rgba(152, 193, 217, 0.25);
+    }
+
+
+
+    /* sponsor */
+
+    .sponsor-logo{
+        margin-bottom: -300px !important;
+        margin-left: 170px;
+    }
+
+    .loghi-p-v{
+        margin-top: 0px;
+        margin-bottom: -100px !important;
+    }
+
+    .loghi-g-b{
+        margin-top: -270px !important;
+        margin-bottom: -200px !important;
+    }
+
+    .loghi-k-b{
+        margin-top: -270px !important;
+        margin-bottom: -400px !important;
+    }
+
+    /* footer */
+
+    .logo-footer{
+        width: 150px;
+        height: 30px;
+        margin-left: 0px;
+    }
+    
+    .social{
+        margin-left: 70px;
+    }
+
+    .social-icon1{
+        margin-left: -5px;
+        color: white;
+    }
+    .social-icon2{
+        margin-left: 2px;
+    }
+    .social-icon3{
+        margin-left: 2px;
+    }
+
+    .fab:hover {
+        color: yellow;
+    }
+
+    .fa-solid:hover {
+        color: yellow;
+    }
 }
 
 @media (min-width: 375px) {
     .main-carousel {
-        width: 363px;
+        width: 373px;
         height: 50vh;
         margin-top: 0px;
         position: relative;
         z-index: 1;
+        border-radius: 0px;
     }
 
     .logo {
         width: 150px;
         height: 30px;
+    }
+
+    .navbar-toggler {
+        margin-right: -14px;
     }
 
 
     .img-carosuel-custom {
         width: 390px;
         height: 400px;
-        /* 
-            object-fit: cover; 
-        */
+        border-radius: 0px;
     }
 
     .carosuel-content-custom {
@@ -185,11 +438,39 @@
     .frecce-custom {
         margin-left: -20px;
     }
+
+    .card-4 {
+        width: 23.4rem;
+        height: 16rem;
+        margin-left: -35px;
+        border: 1px solid grey;
+    }
+
+    .card-4:hover {
+        width: 23.4rem;
+        height: 16rem;
+        margin-left: -35px;
+        border: 1px solid white;
+    }
+
+    .card-3 {
+        width: 23.4rem;
+        height: 16rem;
+        margin-left: -27px;
+        border: 1px solid grey;
+    }
+
+    .card-3:hover {
+        width: 23.4rem;
+        height: 16rem;
+        margin-left: -27px;
+        border: 1px solid white;
+    }
 }
 
 @media (min-width: 425px) {
     .main-carousel {
-        width: 412px;
+        width: 430px;
         height: 50vh;
         margin-top: 0px;
         position: relative;
@@ -201,9 +482,13 @@
         height: 30px;
     }
 
+    .navbar-toggler {
+        margin-right: -5px;
+    }
+
 
     .img-carosuel-custom {
-        width: 420px;
+        width: 423px;
         height: 400px;
         /* 
             object-fit: cover; 
@@ -216,6 +501,34 @@
 
     .frecce-custom {
         margin-left: -20px;
+    }
+
+    .card-4 {
+        width: 26.45rem;
+        height: 16rem;
+        margin-left: -36px;
+        border: 1px solid grey;
+    }
+
+    .card-4:hover {
+        width: 26.45rem;
+        height: 16rem;
+        margin-left: -36px;
+        border: 1px solid white;
+    }
+
+    .card-3 {
+        width: 26.4rem;
+        height: 16rem;
+        margin-left: -28px;
+        border: 1px solid grey;
+    }
+
+    .card-3:hover {
+        width: 26.4rem;
+        height: 16rem;
+        margin-left: -28px;
+        border: 1px solid white;
     }
 }
 
@@ -249,6 +562,34 @@
     .frecce-custom {
         margin-left: -20px;
     }
+
+    .card-4 {
+        width: 42.5rem;
+        height: 16rem;
+        margin-left: -36px;
+        border: 1px solid grey;
+    }
+
+    .card-4:hover {
+        width: 42.5rem;
+        height: 16rem;
+        margin-left: -36px;
+        border: 1px solid white;
+    }
+
+    .card-3 {
+        width: 42.5rem;
+        height: 16rem;
+        margin-left: -28px;
+        border: 1px solid grey;
+    }
+
+    .card-3:hover {
+        width: 42.5rem;
+        height: 16rem;
+        margin-left: -28px;
+        border: 1px solid white;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -281,9 +622,90 @@
     .frecce-custom {
         margin-left: -20px;
     }
+
+
+    /**/
+    
+    .cards-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 5px;
+    }
+    
+    .card-4, .card-3 {
+        width: 98vw;
+        height: 14rem;
+        margin: 0 auto;
+    }
+    
+    .card-4:hover, .card-3:hover {
+        width: 98vw;
+        height: 14rem;
+        margin: 0 auto;
+    }
+    
+    .card-4 img, .card-3 img {
+        margin-left: 100px;
+        width: 60%;
+        height: 95%;
+    }
+    
+    .card-4 .card-body, .card-3 .card-body {
+        padding: 0.8rem;
+    }
+    
+    .card-4 h1.job, .card-3 h1.job {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .card-4 .btn, .card-3 .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+
+
+    .mbare1 {
+        margin-left: -20px;
+    }
+
+    .mbare1:hover {
+        margin-left: -20px;
+    }
+
+    .mbare2 {
+        margin-left: -10px;
+    }
+
+    .mbare2:hover {
+        margin-left: -10px;
+    }
+
+    .yoooo {
+        margin-right: -70px;
+    }
 }
 
 @media (min-width: 1100px) {
+
+    /* Navbar */
+
+    .navbar-glass {
+        position: fixed;
+        top: 0;
+        margin-left: -150px;
+        right: 0;
+        z-index: 0;
+        background-color: transparent;
+    }
+
+    .nav-link {
+        margin-left: -200px;
+    }
+
+    /* Carousel */
+
     .main-carousel {
         width: 1900px;
         height: 70vh;
@@ -317,5 +739,368 @@
     .frecce-custom {
         margin-left: -20px;
         margin-top: 150px;
+    }
+
+
+    /* Card */
+
+    .mbare2 {
+        margin-left: -15px !important;
+    }
+
+    .mbare1{
+        margin-left: -35px !important;
+    }
+
+    .card-4 {
+        width: 45rem;
+        height: 23.7rem;
+        margin-left: -20px;
+        margin-right: 50px;
+        --color1: #e81cff;
+        --color2: #40c9ff;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, var(--color1), var(--color2)) border-box;
+        border: 4px solid transparent;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .card-4:hover {
+        --color1: #fbff1c;
+        --color2: #ff4040;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, #fbff1c, #ff4040) border-box;
+        border: 4px solid transparent;
+        width: 45rem;
+        height: 23.7rem;
+        margin-left: -20px;
+        margin-right: 50px;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    /* Immagine di sfondo con taglio diagonale come League of Legends */
+    .card-4 img {
+        position: absolute;
+        margin-top: -15px;
+        margin-left: 320px;
+        left: 0;
+        width: 80%;
+        height: 110%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+        /*
+        clip-path: polygon(100% -50%, -35% 200%, 10% 100%, 100% 100%);
+        */
+        clip-path: polygon(100% -1000%, 0% 50%, 10% 100%, 100% 100%);
+    }
+
+    /* Overlay scuro con forma che segue il taglio dell'immagine */
+    .card-4::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(11, 13, 26, 0.7) 0%, rgba(11, 13, 26, 0.3) 50%, transparent 70%);
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* Contenitore del testo sovrapposto */
+    .card-4 .card-body {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        color: white;
+    }
+
+    /* Titolo in stile League of Legends */
+    .card-4 h1.job {
+        font-size: 2.3rem;
+        font-weight: 900;
+        color: #f0f6fc;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Bottone in stile moderno */
+    .card-4 .btn {
+        background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+        border: 2px solid #3d5a80;
+        color: #f0f6fc;
+        padding: 0.8rem 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        width: fit-content;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-4 .btn:hover {
+        background: linear-gradient(45deg, #203a43, #2c5364, #0f2027);
+        border-color: #98c1d9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(152, 193, 217, 0.3);
+        color: #98c1d9;
+    }
+
+    /* Effetto glow sul bottone */
+    .card-4 .btn:focus {
+        box-shadow: 0 0 0 0.2rem rgba(152, 193, 217, 0.25);
+    }
+
+    /**/
+
+    .card-3 {
+        width: 45rem;
+        height: 23.7rem;
+        margin-right: 12px;
+        --color1: #e81cff;
+        --color2: #40c9ff;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, var(--color1), var(--color2)) border-box;
+        border: 4px solid transparent;
+        margin-top: 50px;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .card-3:hover {
+        --color1: #fbff1c;
+        --color2: #ff4040;
+        background: linear-gradient(#0b0d1a, #0b0d1a) padding-box,
+            linear-gradient(145deg, transparent 35%, #fbff1c, #ff4040) border-box;
+        border: 4px solid transparent;
+        width: 45rem;
+        height: 23.7rem;
+        margin-left: -20px;
+        margin-right: 50px;
+        margin-top: 50px;
+        display: flex;
+        overflow: hidden;
+        background-color: #0b0d1a;
+        position: relative;
+        transition: all 0.3s ease;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    /* Immagine di sfondo con taglio diagonale come League of Legends */
+    .card-3 img {
+        position: absolute;
+        margin-top: -15px;
+        margin-left: 320px;
+        left: 0;
+        width: 80%;
+        height: 110%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+        /*
+        clip-path: polygon(100% -50%, -35% 200%, 10% 100%, 100% 100%);
+        */
+        clip-path: polygon(100% -1000%, 0% 50%, 10% 100%, 100% 100%);
+    }
+
+    /* Overlay scuro con forma che segue il taglio dell'immagine */
+    .card-3::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(11, 13, 26, 0.7) 0%, rgba(11, 13, 26, 0.3) 50%, transparent 70%);
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* Contenitore del testo sovrapposto */
+    .card-3 .card-body {
+        position: relative;
+        z-index: 3;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem;
+        color: white;
+    }
+
+    /* Titolo in stile League of Legends */
+    .card-3 h1.job {
+        font-size: 2.3rem;
+        font-weight: 900;
+        color: #f0f6fc;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    /* Bottone in stile moderno */
+    .card-3 .btn {
+        background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+        border: 2px solid #3d5a80;
+        color: #f0f6fc;
+        padding: 0.8rem 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        width: fit-content;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-3 .btn:hover {
+        background: linear-gradient(45deg, #203a43, #2c5364, #0f2027);
+        border-color: #98c1d9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(152, 193, 217, 0.3);
+        color: #98c1d9;
+    }
+
+    /* Effetto glow sul bottone */
+    .card-3 .btn:focus {
+        box-shadow: 0 0 0 0.2rem rgba(152, 193, 217, 0.25);
+    }
+
+
+
+    .mbare1 {
+        margin-left: -20px;
+    }
+
+    .mbare1:hover {
+        margin-left: -20px;
+    }
+
+    .mbare2 {
+        margin-left: -10px;
+    }
+
+    .mbare2:hover {
+        margin-left: -10px;
+    }
+
+    .yoooo {
+        margin-right: -70px;
+    }
+
+
+
+    /* Sponsor */
+
+    .sponsor-logo{
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+
+    .loghi-p-v{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .loghi-g-b{
+        margin-top: 0px;
+        margin-bottom: -380px !important;
+    }
+
+    .loghi-k-b{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .sponsor {
+        width: 100%;
+        height: 300px;
+        margin-left: 0px;
+    }
+
+    .sponsor-logo{
+        margin-bottom: -300px !important;
+        margin-left: 170px;
+    }
+
+    .atm {
+        margin-left: 150px;
+    }
+
+
+
+    /* Footer */
+
+    .footer {
+        width: 100%;
+        height: 300px;
+    }
+
+    .logo-footer {
+        width: 300px;
+        height: 40px;
+
+        margin-left: 0px;
+    }
+
+    /* social */
+    .social {
+        margin-left: 1095px;
+    }
+
+    .fab {
+        width: 30px;
+        color: white;
+    }
+
+    .fab:hover {
+        color: yellow;
+    }
+
+    .fa-solid {
+        width: 30px;
+        color: white;
+    }
+
+    .fa-solid:hover {
+        color: yellow;
     }
 }
