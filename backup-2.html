@@ -88,7 +88,7 @@
 
 <body class="body-custom">
   <div class="container-fluid">
-    <div class="d-none d-lg-block navbar-wrapper" id="desktopNavbar">
+    <div class="d-none d-lg-block navbar-wrapper">
       <div class="row justify-content-center pt-3">
         <div class="col-xl-8 col-lg-10">
           <nav class="navbar navbar-expand-lg navbar-glass rounded-bottom-4">
@@ -98,18 +98,20 @@
               </a>
               <div class="navbar-nav ms-lg-5">
                 <a class="nav-link mx-4 fs-5" href="#" style="color: lightgreen;">Home</a>
-                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="a.html">Services</a>
-                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="b.html">Used</a>
+                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="Services.html">Services</a>
+                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="test.html">Used</a>
                 <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="#">About</a>
-                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="c.html">Contacts</a>
+                <a class="nav-link text-white mx-4 fs-5 fs-xl-1" href="contacts.html">Contacts</a>
               </div>
             </div>
           </nav>
         </div>
       </div>
     </div>
+
+    <!-- Navbar Mobile e Tablet (visibile su mobile e tablet) -->
     <div class="d-block d-lg-none">
-      <nav class="navbar navbar-glass" id="mobileNavbar">
+      <nav class="navbar navbar-glass">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="#">
             <img src="boninomoto.png" alt="Logo" class="logo" height="30">
@@ -120,6 +122,8 @@
           </button>
         </div>
       </nav>
+
+      <!-- Offcanvas Menu -->
       <div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header border-bottom border-light border-opacity-25">
@@ -132,17 +136,17 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="a.html">
+              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="index.html">
                 <i class="bi bi-house me-2"></i>Home
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="b.html">
+              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="Services.html">
                 <i class="bi bi-gear me-2"></i>Services
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="c.html">
+              <a class="nav-link text-white py-3 border-bottom border-light border-opacity-25" href="test.html">
                 <i class="bi bi-box me-2"></i>Resume
               </a>
             </li>
@@ -152,7 +156,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white py-3" href="d.html">
+              <a class="nav-link text-white py-3" href="contacts.html">
                 <i class="bi bi-envelope me-2"></i>Contacts
               </a>
             </li>
@@ -160,42 +164,6 @@
         </div>
       </div>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const desktopNavbar = document.getElementById('desktopNavbar');
-        const mobileNavbar = document.getElementById('mobileNavbar');
-
-        function handleScroll() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-          // Add scrolled class when user scrolls down more than 50px
-          if (scrollTop > 50) {
-            if (desktopNavbar) {
-              desktopNavbar.classList.add('scrolled');
-            }
-            if (mobileNavbar) {
-              mobileNavbar.classList.add('scrolled');
-            }
-          } else {
-            if (desktopNavbar) {
-              desktopNavbar.classList.remove('scrolled');
-            }
-            if (mobileNavbar) {
-              mobileNavbar.classList.remove('scrolled');
-            }
-          }
-        }
-
-        // Listen for scroll events
-        window.addEventListener('scroll', handleScroll);
-
-        // Check initial scroll position
-        handleScroll();
-      });
-    </script>
-
-
-
 
     <div id="carouselExampleIndicators" class="carousel slide main-carousel" data-bs-ride="carousel"
       data-bs-interval="3500">
@@ -238,7 +206,7 @@
     <div class="d-block d-lg-block yoooo" style="background-color: #1e1e1e; margin-top: 200px;">
       <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
-          <h1 class="ms-lg-3 text-white">What do we offer</h1>
+          <h1>What do we offer</h1>
           <div class="row g-3 justify-content-center">
             <!-- Prima card -->
             <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 zium">
@@ -254,20 +222,20 @@
               </div>
             </div>
             <!-- Seconda card invariata -->
-            <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 yoooo">
+            <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 ">
               <div class="card bg-transparent card-3 mbare1 ms-xl-5">
                 <div class="card-title">
                 </div>
                 <div class="card-body align-items-start">
                   <h1 class="job" style="color: skyblue;">Vendita <br>usato</h1>
                   <div class="btn btn-primary">Mezzi usati</div>
-                  <img src="moto-usate.png" alt="">
+                  <img src="Officina.jpg" alt="">
                 </div>
               </div>
             </div>
             <div class="row g-3 justify-content-center">
               <!-- Prima card -->
-              <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1 ">
+              <div class="col-lg-6 col-md-10 col-11 order-2 order-lg-1">
                 <div class="card bg-transparent card-4">
                   <div class="card-title">
                   </div>
@@ -286,9 +254,7 @@
                   </div>
                   <div class="card-body align-items-start">
                     <h1 class="job" style="color: skyblue;">Riparazione <br>veicoli</h1>
-                    <a href="riparazioneVeicoli.html">
-                      <div class="btn btn-primary">Scopri di più</div>
-                    </a>
+                    <div class="btn btn-primary">Scopri di più</div>
 
                     <img src="Officina.jpg" alt="">
                   </div>
@@ -305,7 +271,7 @@
     </div>
 
     <!-- sponsor -->
-    <div class="d-block d-lg-block sponsor" style="background-color: transparent; margin-top: 100px;">
+    <div class="d-block d-lg-block sponsor" style="background-color: #1e1e1e; margin-top: 100px;">
       <h1 class="text-start text-white atm">Our Sponsors</h1>
       <div class="row justify-content-center" style="margin-top: -100px;">
         <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
@@ -331,9 +297,7 @@
                     }
                   </style>
                   <g class="logo">
-                    <a href="https://www.vespa.com/it_IT">
-                      <image href="Vespa.png" x="0" y="0" height="500" width="200" />
-                    </a>
+                    <image href="Vespa.png" x="0" y="0" height="500" width="200" />
                   </g>
                 </svg>
               </div>
@@ -353,9 +317,7 @@
                     }
                   </style>
                   <g class="logo">
-                    <a href="https://www.gilera.com/it_IT">
-                      <image href="Gilera.png" x="0" y="0" height="500" width="200" />
-                    </a>
+                    <image href="Gilera.png" x="0" y="0" height="500" width="200" />
                   </g>
                 </svg>
               </div>
@@ -381,83 +343,70 @@
                     }
                   </style>
                   <g class="logo">
-                    <a href="https://www.benelli.com/it-it">
-                      <image href="benelli-footer-logo.png" x="0" y="0" height="500" width="200" />
-                    </a>
+                    <image href="benelli-footer-logo.png" x="0" y="0" height="500" width="200" />
                   </g>
                 </svg>
               </div>
 
-              <!-- Keeway -->
               <div class="col-6 col-md-4 col-lg-2 order-4 order-lg-3 mb-1 loghi-k-b">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
-                  aria-labelledby="title-keeway" role="img">
-                  <title id="title-keeway">Keeway</title>
+                  aria-labelledby="title-benelli" role="img">
+                  <title id="title-benelli">Keeway</title>
                   <style>
                     .logo image {
-                      filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
+                      filter: grayscale(100%);
                       transition: filter 200ms ease;
                     }
 
                     svg:hover .logo image {
-                      filter: grayscale(0%) brightness(100%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
-                      cursor: pointer;
+                      filter: grayscale(0%);
                     }
                   </style>
                   <g class="logo">
-                    <a href="https://www.keeway.com/it-it">
-                      <image href="keeway-logo.png" x="0" y="0" height="500" width="200" />
-                    </a>
+                    <image href="keeway-logo-vector.png" x="0" y="0" height="500" width="200" />
                   </g>
                 </svg>
               </div>
 
-              <!-- Brixton -->
+              <!-- Terza coppia: Keeway e Brixton -->
               <div class="col-6 col-md-4 col-lg-2 order-5 order-lg-4 mb-1 loghi-k-b">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
-                  aria-labelledby="title-brixton" role="img">
-                  <title id="title-brixton">Brixton</title>
+                  aria-labelledby="title-keeway" role="img">
+                  <title id="title-keeway">Brixton</title>
                   <style>
                     .logo image {
-                      filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
+                      filter: grayscale(100%);
                       transition: filter 200ms ease;
                     }
 
                     svg:hover .logo image {
-                      filter: grayscale(0%) brightness(100%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(1);
-                      cursor: pointer;
+                      filter: grayscale(0%);
                     }
                   </style>
-
                   <g class="logo">
-                    <a href="https://www.brixton-motorcycles.com">
-                      <image href="brixton-logo.png" x="0" y="0" height="500" width="200" />
-                    </a>
+                    <image href="brixton-logo-removebg-preview.png" x="0" y="0" height="500" width="200" />
                   </g>
                 </svg>
               </div>
 
-
               <div class="col-6 col-md-4 col-lg-2 order-8 order-lg-6 mb-0 loghi-p-v">
-                <a href="https://www.piaggio.com/it_IT">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
-                    aria-labelledby="title-brixton" role="img">
-                    <title id="title-brixton">Piaggio</title>
-                    <style>
-                      .logo image {
-                        filter: grayscale(100%);
-                        transition: filter 200ms ease;
-                      }
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="250" height="500"
+                  aria-labelledby="title-brixton" role="img">
+                  <title id="title-brixton">Piaggio</title>
+                  <style>
+                    .logo image {
+                      filter: grayscale(100%);
+                      transition: filter 200ms ease;
+                    }
 
-                      svg:hover .logo image {
-                        filter: grayscale(0%);
-                      }
-                    </style>
-                    <g class="logo">
-                      <image href="Piaggio.png" x="0" y="0" height="500" width="200" />
-                    </g>
-                  </svg>
-                </a>
+                    svg:hover .logo image {
+                      filter: grayscale(0%);
+                    }
+                  </style>
+                  <g class="logo">
+                    <image href="Piaggio.png" x="0" y="0" height="500" width="200" />
+                  </g>
+                </svg>
               </div>
             </div>
             <hr>
@@ -467,7 +416,7 @@
     </div>
 
     <!-- footer -->
-    <div class="d-block d-lg-block footer" style="background-color: transparent; margin-top: 150px;">
+    <div class="d-block d-lg-block footer" style="background-color: #1e1e1e; margin-top: 150px;">
       <div class="row justify-content-center">
         <div class="col-xl-10 col-lg-11"> <!-- Aumentato da col-xl-8 col-lg-10 -->
           <div class="row g-3 justify-content-center">
@@ -479,11 +428,9 @@
                 </div>
                 <div class="col social mt-xl-5 mt-4">
                   <p class="mb-0">
-                    <a href="https://www.facebook.com/boninomoto#" class=""><i
-                        class="fab fa-facebook-f social-icon1"></i></a>
+                    <a href="https://www.facebook.com/boninomoto#" class=""><i class="fab fa-facebook-f social-icon1"></i></a>
                     <a href="#" class="text-white"><i class="fab fa-instagram social-icon2"></i></a>
-                    <a href="boninomoto@tiscali.it" class="text-white "><i
-                        class="fa-solid fa-envelope social-icon3"></i></a>
+                    <a href="boninomoto@tiscali.it" class="text-white "><i class="fa-solid fa-envelope social-icon3"></i></a>
                   </p>
                 </div>
               </div>
